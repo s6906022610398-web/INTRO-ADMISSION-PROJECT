@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>รับสมัครนักศึกษา - มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <img src="image/Master Logo_KMUTNB_Thai PNG.png" alt="โลโก้" class="head-img">
+            <div class="text-content">
+                <h1>รับสมัครนักศึกษา</h1>
+                <h2>มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ</h2>
+            </div>
+        </div>
+
+        <nav class="navbar">
+            <div class="wrap">
+                <button class="nav-toggle" id="navToggle" aria-label="เปิดเมนู" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+                <ul class="nav-list" id="navList">
+                    <li><a href="index.html">หน้าแรก</a></li>
+                    <li><a href="admission.html" class="active">รับสมัคร</a></li>
+                    <li><a href="assign.html">กำหนดการรับนักศึกษา</a></li>
+                    <li><a href="course.html">หลักสูตร</a></li>
+                    <li><a href="contact.html">ติดต่อเรา</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="main-container">
+        
+        <!-- Section 1: ขั้นตอนการสมัครเรียน -->
+        <section class="steps-section">
+            <h2 class="section-title">ขั้นตอนการสมัครเรียน</h2>
+            <p class="subtitle">สมัครเรียนง่าย ๆ ภายใน 4 ขั้นตอน ตั้งแต่ตรวจสอบคุณสมบัติจนถึงประกาศผล</p>
+            
+            <div class="steps-grid">
+                <!-- ขั้นตอนที่ 1 -->
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>ตรวจสอบคุณสมบัติ</h3>
+                    <p>อ่านระเบียบการรับสมัครและตรวจสอบคุณสมบัติของแต่ละหลักสูตรก่อนยื่นใบสมัคร</p>
+                </div>
+
+                <!-- ขั้นตอนที่ 2 -->
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>กรอกใบสมัครออนไลน์</h3>
+                    <p>กรอกข้อมูลส่วนตัวและเลือกคณะ/สาขาวิชาที่สนใจผ่านระบบรับสมัครออนไลน์</p>
+                </div>
+
+                <!-- ขั้นตอนที่ 3 -->
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>ชำระค่าสมัคร</h3>
+                    <p>ชำระเงินค่าธรรมเนียมการสมัครผ่านช่องทางที่กำหนดภายในระยะเวลาที่ระบุ</p>
+                </div>
+
+                <!-- ขั้นตอนที่ 4 -->
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>ติดตามผลการสมัคร</h3>
+                    <p>ตรวจสอบสถานะใบสมัครและติดตามประกาศผลผ่านเว็บไซต์รับสมัคร</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: แบบฟอร์มการสมัคร -->
+        <section class="form-section">
+            <h2 class="form-main-title">แบบฟอร์มแจ้งความประสงค์สมัครเรียน</h2>
+
+            <!-- เพิ่ม action="payment.html" และ event onsubmit เพื่อแปลงค่าก่อนส่ง -->
+            <form class="application-form" action="payment.html" method="GET" onsubmit="return prepareDataForPayment()">
+                
+                <!-- Block 1: ข้อมูลส่วนตัว -->
+               <!-- Block 1: ข้อมูลส่วนตัว -->
+<div class="form-card">
+    <div class="card-header">
+        <span class="step-num">1</span>
+        <h3>ข้อมูลส่วนตัว</h3>
+    </div>
+    <div class="form-row">
+        <div class="input-group">
+            <label for="fname">ชื่อ</label>
+            <input type="text" id="fname" name="fname" required>
+        </div>
+        <div class="input-group">
+            <label for="lname">นามสกุล</label>
+            <input type="text" id="lname" name="lname" required>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="input-group">
+            <label for="idcard">เลขบัตรประจำตัวประชาชน</label>
+            <input type="text" id="idcard" name="idcard" required>
+        </div>
+        <div class="input-group">
+            <label for="dob">วัน เดือน ปีเกิด</label>
+            <input type="date" id="dob" name="dob">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="input-group">
+            <label for="phone">เบอร์โทรศัพท์</label>
+            <input type="tel" id="phone" name="phone">
+        </div>
+        <div class="input-group">
+            <label for="email">อีเมล</label>
+            <input type="email" id="email" name="email">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="input-group full-width">
+            <label for="address">ที่อยู่ตามทะเบียนบ้าน</label>
+            <input type="text" id="address" name="address">
+        </div>
+    </div>
+</div>
+
+                <!-- Block 3: เลือกสาขาที่สมัคร -->
+                <div class="form-card">
+                    <div class="card-header">
+                        <span class="step-num">3</span>
+                        <h3>เลือกสาขาที่สมัคร</h3>
+                    </div>
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="faculty">คณะ</label>
+                            <select id="faculty" name="faculty" onchange="updateMajors()" required>
+                                <option value="">-- กรุณาเลือกคณะ --</option>
+                                <option value="eng">คณะวิศวกรรมศาสตร์</option>
+                                <option value="ibt">คณะบริหารธุรกิจและอุตสาหกรรมบริการ</option>
+                                <option value="fitm">คณะเทคโนโลยีและการจัดการอุตสาหกรรม</option>
+                                <option value="ai">คณะอุตสาหกรรมเกษตรดิจิทัล</option>
+                            </select>
+                            <input type="hidden" id="faculty_text" name="faculty_text">
+                        </div>
+                        <div class="input-group">
+                            <label for="major">สาขาวิชา</label>
+                            <select id="major" name="major" disabled required>
+                                <option value="">-- กรุณาเลือกคณะก่อน --</option>
+                            </select>
+                            <input type="hidden" id="major_text" name="major_text">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Block 4: เอกสารประกอบการสมัคร -->
+                <div class="form-card">
+                    <div class="card-header">
+                        <span class="step-num">4</span>
+                        <h3>เอกสารประกอบการสมัคร</h3>
+                    </div>
+
+                    <div class="upload-item">
+                        <p class="upload-title">ใบแสดงผลการเรียน (ปพ.1)</p>
+                        <p class="upload-note">การอัปโหลดไฟล์ แนบไฟล์สแกนหลักฐานไฟล์ pdf,jpg,png ขนาดไม่เกิน 5 MB</p>
+                        <input type="file" id="file1" class="file-input">
+                        <label for="file1" class="btn-choose">Choose File</label>
+                    </div>
+
+                    <div class="upload-item">
+                        <p class="upload-title">สำเนาบัตรประชาชน</p>
+                        <p class="upload-note">การอัปโหลดไฟล์ แนบไฟล์สแกนหลักฐานไฟล์ pdf,jpg,png ขนาดไม่เกิน 5 MB</p>
+                        <input type="file" id="file2" class="file-input">
+                        <label for="file2" class="btn-choose">Choose File</label>
+                    </div>
+
+                    <div class="upload-item">
+                        <p class="upload-title">รูปถ่ายหน้าตรง</p>
+                        <p class="upload-note">การอัปโหลดไฟล์ แนบไฟล์สแกนหลักฐานไฟล์ pdf,jpg,png ขนาดไม่เกิน 5 MB</p>
+                        <input type="file" id="file3" class="file-input">
+                        <label for="file3" class="btn-choose">Choose File</label>
+                    </div>
+                </div>
+
+                <p class="form-footer-note">ข้าพเจ้าขอรับรองว่าข้อความข้างต้นถูกต้องและเป็นความจริงทุกประการ</p>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-submit-orange">ส่งข้อมูลการสมัคร</button>
+                </div>
+
+            </form>
+        </section>
+
+    </main>
+
+    <footer class="footer-container">
+        <div class="footer-left">
+            <h3>ติดต่อ</h3>
+            <p>กลุ่มงานรับเข้าศึกษา กองบริการการศึกษา สำนักงานอธิการบดี ชั้น 2 อาคาร TGGS</p>
+            <p>มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ 1518</p>
+            <p>ถนนประชาราษฎร์ 1 แขวงวงศ์สว่าง เขตบางซื่อ กรุงเทพฯ 10800</p>
+            <p>+66 2 555-2000 ต่อ 1626,1627</p>
+            <p>+66 2 555-2171</p>
+            
+            <div class="facebook-link">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/2023_Facebook_icon.svg" alt="Facebook Icon" class="fb-icon-small">
+                <span>facebook : </span>
+                <a href="https://www.facebook.com/admission.kmutnb" target="_blank" rel="noopener noreferrer">
+                    Admission.KMUTNB - กลุ่มงานรับเข้าศึกษา มจพ.
+                </a>
+            </div>
+        </div>
+        <div class="footer-right">
+            <h3>ติดตามเราได้ที่</h3>
+            <a href="https://www.facebook.com/admission.kmutnb" target="_blank" rel="noopener noreferrer">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/2023_Facebook_icon.svg" alt="Facebook Logo" class="fb-icon-large">
+            </a>
+        </div>
+    </footer>
+
+    <!-- JavaScript ระบบเลือกสาขาและเตรียมข้อมูลส่งต่อไปยัง payment.html -->
+    <script>
+        const majorsByFaculty = {
+            eng: [
+                { value: "InAE", text: "วิศวกรรมเครื่องมือวัดและอัตโนมัติ" },
+            ],
+            ibt: [
+                { value: "TH", text: "การจัดการอุตสาหกรรมท่องเที่ยวและโรงแรม" },
+                { value: "IBT", text: "บริหารธุรกิจอุตสาหกรรมและการค้า" }
+            ],
+            fitm: [
+                { value: "it", text: "เทคโนโลยีสารสนเทศ" },
+                { value: "ine", text: "วิศวกรรมสารสนเทศและเครือข่าย" },
+                { value: "inet", text: "วิศวกรรมสารสนเทศและเครือข่าย" },
+                { value: "iti", text: "เทคโนโลยีสารสนเทศ" }
+            ],
+            ai: [
+                { value: "FTSCM", text: "เทคโนโลยีอาหารและการจัดการห่วงโซ่อุปทาน" },
+                { value: "FAIN", text: "นวัตกรรมผลิตภัณฑ์อาหารและความงาม" }
+            ]
+        };
+
+        function updateMajors() {
+            const facultySelect = document.getElementById("faculty");
+            const majorSelect = document.getElementById("major");
+            const selectedFaculty = facultySelect.value;
+
+            majorSelect.innerHTML = '<option value="">-- กรุณาเลือกสาขาวิชา --</option>';
+
+            if (selectedFaculty && majorsByFaculty[selectedFaculty]) {
+                majorSelect.disabled = false;
+                majorsByFaculty[selectedFaculty].forEach(major => {
+                    const option = document.createElement("option");
+                    option.value = major.value;
+                    option.textContent = major.text;
+                    majorSelect.appendChild(option);
+                });
+            } else {
+                majorSelect.disabled = true;
+                majorSelect.innerHTML = '<option value="">-- กรุณาเลือกคณะก่อน --</option>';
+            }
+        }
+
+        // ดึงชื่อภาษาไทยของคณะและสาขาใส่ใน hidden input ก่อนส่งไป payment.html
+        function prepareDataForPayment() {
+            const facultySelect = document.getElementById("faculty");
+            const majorSelect = document.getElementById("major");
+
+            if (facultySelect.selectedIndex > 0) {
+                document.getElementById("faculty_text").value = facultySelect.options[facultySelect.selectedIndex].text;
+            }
+            if (majorSelect.selectedIndex > 0) {
+                document.getElementById("major_text").value = majorSelect.options[majorSelect.selectedIndex].text;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>

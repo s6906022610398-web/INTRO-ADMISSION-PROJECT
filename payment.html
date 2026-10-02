@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ชำระเงินค่าสมัคร - มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ</title>
+  
+  <!-- Font และ CDN Library -->
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  
+  <!-- ลิงก์ไปยังไฟล์ CSS (ปรับ path เป็น css/style.css) -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="card">
+    <h2>ชำระเงินค่าธรรมเนียมการสมัคร</h2>
+    <p class="subtitle">มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ</p>
+
+    <!-- สรุปรายการ -->
+    <div class="section-title">สรุปรายการข้อมูลผู้สมัคร</div>
+    <div class="summary-box">
+      <div class="summary-item">
+        <span class="summary-label">ชื่อ-นามสกุล:</span>
+        <span class="summary-value" id="disp-name">-</span>
+      </div>
+      <div class="summary-item">
+        <span class="summary-label">เลขบัตรประชาชน:</span>
+        <span class="summary-value" id="disp-id">-</span>
+      </div>
+      <div class="summary-item">
+        <span class="summary-label">คณะ:</span>
+        <span class="summary-value" id="disp-faculty">-</span>
+      </div>
+      <div class="summary-item">
+        <span class="summary-label">สาขาวิชา:</span>
+        <span class="summary-value" id="disp-major">-</span>
+      </div>
+    </div>
+
+    <!-- ยอดชำระ -->
+    <div class="price-box">
+      <span class="price-label">ยอดที่ต้องชำระทั้งหมด</span>
+      <span class="price-amount">500.00 บาท</span>
+    </div>
+
+    <!-- QR Code -->
+    <div class="qr-container">
+      <div class="section-title" style="border:none; margin-bottom:0;">สแกนเพื่อชำระเงิน</div>
+      <div id="qrcode"></div>
+      <button class="btn-download" onclick="downloadQR()">📥 ดาวน์โหลด QR Code</button>
+    </div>
+
+    <!-- ปุ่มเสร็จสิ้น -->
+    <button class="btn-submit" onclick="finishPayment()">เสร็จสิ้นการทำรายการ</button>
+  </div>
+
+  <script>
+    // 1. ดึงข้อมูลจาก URL (แก้ให้ตรงกับ name attribute ของ admission.html)
+    const urlParams = new URLSearchParams(window.location.search);
+    
+    const fname = urlParams.get('fname') || '';
+    const lname = urlParams.get('lname') || '';
+    const idcard = urlParams.get('idcard') || '';
+    const faculty = urlParams.get('faculty_text') || urlParams.get('faculty') || '';
+    const major = urlParams.get('major_text') || urlParams.get('major') || '';
+
+    if (fname || lname) {
+      document.getElementById('disp-name').innerText = `${fname} ${lname}`.trim();
+    }
+    if (idcard) document.getElementById('disp-id').innerText = idcard;
+    if (faculty) document.getElementById('disp-faculty').innerText = faculty;
+    if (major) document.getElementById('disp-major').innerText = major;
+
+    // 2. สร้าง QR Code
+    const qrText = "https://example.com/pay/500";
+    const qrcode = new QRCode(document.getElementById("qrcode"), {
+      text: qrText,
+      width: 180,
+      height: 180,
+      colorDark : "#000000",
+      colorLight : "#ffffff",
+      correctLevel : QRCode.CorrectLevel.H
+    });
+
+    // 3. ดาวน์โหลดรูป QR Code
+    function downloadQR() {
+      setTimeout(() => {
+        const img = document.querySelector("#qrcode img");
+        if (img) {
+          const link = document.createElement("a");
+          link.href = img.src;
+          link.download = "QR_Payment_KMUTNB.png";
+          link.click();
+        } else {
+          alert("ไม่สามารถดาวน์โหลดรูปภาพได้ กรุณาลองใหม่อีกครั้ง");
+        }
+      }, 300);
+    }
+
+    // 4. ปุ่มเสร็จสิ้น
+    function finishPayment() {
+      alert("ขอบคุณสำหรับการชำระเงิน ระบบได้รับข้อมูลเรียบร้อยแล้ว");
+      window.location.href = "index.html";
+    }
+  </script>
+
+</body>
+</html>
