@@ -1,650 +1,691 @@
-.site-header{
-    position: relative;
-  background-color: #EC4A14;
-  padding: 20px 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 35px;
-  color: rgb(255, 248, 248);
+* {
+  box-sizing: border-box;
+}
+/*================================== 
+ หัวเว็บ stylr 
+ ===================================*/ 
+.site-header{ 
+  position: relative; 
+  background-color: #EC4A14; 
+  padding: 20px 30px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  font-size: 35px; 
+  color: rgb(255, 248, 248); 
   width: 100%;
-}
-.body{
-  background-color: #EC4A14;
-}
-.container {
-  display: flex;
-  align-items: left; 
-  gap: 20px;          
-}
-.head-img{
-    width: 4%;
-    height: 4%;
-}
-.text-content{
-    text-align: left;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 10px;
-    color: #000;
-    margin-top: auto;    /* ระยะห่างระหว่างบรรทัดข้อความ */
-    font-weight: normal;
-}
-/* ลบระยะห่างส่วนเกินของข้อความ */
-.text-content h1, 
-.text-content h2 {
-  margin: 0;          /* ลบระยะขอบบน-ล่างออกทั้งหมด */
-  line-height: 1.2;   /* ปรับความสูงบรรทัดให้กระชับขึ้น */
-}
-
-/* หากต้องการให้ 2 บรรทัดนี้ห่างกันเล็กน้อย ให้ใส่ระยะห่างที่บรรทัดบน */
-.text-content h2 {
-  margin-bottom: 4px; /* ปรับเพิ่ม-ลด ความห่างตรงนี้ได้ตามต้องการ */
-}
-.nav-list li a {
-  font-size: 14px;
-  white-space: nowrap;
-  text-decoration: none;
-  color: #000000;
-  
-  /* เพิ่ม 2 บรรทัดนี้ เพื่อเตรียมความลื่นไหลและแสดงว่าเป็นปุ่มกด */
-  display: inline-block;             /* เพื่อให้ transform ทำงานได้อย่างสมบูรณ์ */
-  transition: transform 0.2s ease;   /* กำหนดความนุ่มนวลเวลาขยาย/ย่อ */
-}
-
-/* เพิ่มส่วนนี้ เพื่อให้ดุ๊กดิ๊กเวลาเอาเมาส์ชี้ */
-.nav-list li a:hover {
-  transform: scale(1.1);             /* ขยายตัวอักษรขึ้น 10% เมื่อเมาส์ชี้ */
-  color: #f7f7f7;                    /* (Optional) เปลี่ยนสีข้อความเวลานำเมาส์ชี้ได้ */
-}
-
-.nav-list {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  gap: 12px;
-  overflow-x: auto;
-  margin-right: 40px;
-}
-
-/* ซ่อนปุ่มเปิดเมนูเมื่อเปิดบนหน้าจอคอมพิวเตอร์ */
-.nav-toggle {
-  display: none;
-}
-.container2 {
-  display: flex;
-  justify-content: center; /* จัดกลุ่มไอคอนให้อยู่กลางหน้าจอแนวนอน */
-  align-items: flex-start; /* ให้ด้านบนของแต่ละบล็อกตรงกัน */
-  gap: 20%;               /* ระยะห่างระหว่างแต่ละเมนู */
-  background-color: #EC4A14; /* หรือใช้สีส้มที่ต้องการ เช่น #FF6600, orange */
-  padding: 0px; /
-}
-
-.menu-item {
-  display: flex;
-  flex-direction: column;  /* แนวตั้ง: ให้รูปอยู่บน ข้อความอยู่ล่าง */
-  align-items: center;     /* จัดให้ทั้งรูปและข้อความตรงกลาง */
-  text-align: center;      /* ให้ข้อความอยู่ตรงกลาง */
-  transition: transform 0.2s ease; /* กำหนดความนุ่มนวลเวลาขยาย/ย่อ */
-  cursor: pointer;         /* เปลี่ยนรูปเมาส์เป็นนิ้วชี้ */
-  margin-top: 10px;
-}
-
-/* เอฟเฟกต์ทำงานเมื่อนำเมาส์ไปชี้ (:hover) */
-.menu-item:hover {
-  transform: scale(1.08);  /* ขยายขึ้น 8% เมื่อเมาส์ชี้ */
-}
-/* เอฟเฟกต์เวลากดคลิกค้างไว้ */
-.menu-item:active {
-  transform: scale(0.95);  /* ยุบลงเล็กน้อยตอนกด */
-}
-
-
-.banner1-img {
-  width: 90px;
-  height: auto;
-  margin-bottom: 8px;      /* ระยะห่างระหว่างรูปกับข้อความ */
-}
-
-.a-banner-img{
-  display: block;      /* เปลี่ยนเป็น block เพื่อให้ใช้ margin auto ได้ */
-  margin: 0 auto;      /* จัดให้อยู่ตรงกลางแนวนอน */
-  max-width: 100%;     /* ป้องกันรูปใหญ่เกินขนาดหน้าจอ */
-  height: auto;
-}
-
-
-/* หน้าติดต่อเรา*/
-.contact-cardh1{
-  background-color: #F4E9E5 ;
-  padding: 6px 14px;
-  border-radius: 8px;
-  display: inline-block;
-}
-.contact-card{
-  background-color: #ffffff;
-  border: 1 px solid #e0e0e0;
-  border-radius: 8px;
-  padding: 30px;
-  max-width: 800px;
-  margin: 40px;
-  box-shadow: 0 4px 6 px rgba(0,0,0,0.05);
-}
-.contact-card h1{
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 32px;
-  color: #333
-}
-.contact-card h2{
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 18px;
-  color: #333
-}
-.contact-card h3{
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 14px;
-  color: #333  
-}
-.facebook-link-contact-card a{
-  color: #020202;
-  align-items: center;
-  gap: 8px;
-  margin-top: 8px;
-  font-size: 14px;
-}
-
-/*หน้าสอบถามหลักสูตร*/
-.course-link a{
-  color: #000;
-  background-color: #F4E9E5 ;
-  padding: 12px 14px;
-  border-radius: 8px;
-  display: inline-block;
-  margin-bottom: 50px;
-}
-
-.artical {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-    padding: 20px;
-  
-}
-.artical h1 {
-  border: 2px solid #f83a00; /* สร้างกรอบ: ความหนา 2px, ชนิดเส้นทึบ, สีเทาเข้ม */
-  padding: 10px 20px;       /* เพิ่มระยะห่างด้านในระหว่างข้อความกับกรอบ (บน-ล่าง 10px, ซ้าย-ขวา 20px) */
-  border-radius: 5px;       /* ทำมุมโค้งมน (ถ้าชอบแบบมุมเหลี่ยมให้ลบบรรทัดนี้ออก) */
-  display: inline-block;     /* บังคับให้กรอบมีความกว้างเท่ากับตัวข้อความพอดี (ไม่ยาวสุดหน้าจอ) */
-}
-/* กำหนดสไตล์รายการและการลบจุดกระสุนที่ตัวแม่ (ul) */
-.navmap {
-  list-style-type: none;
-  padding-left: 0;
-  margin-left: 0;
-}
-
-/* ปรับสีลิงก์ให้เห็นชัดเจนขึ้น */
-.navmap li a {
-  font-size: 20px;
-  white-space: nowrap;
-  text-decoration: none;
-  color: #000103;         /* เปลี่ยนจาก #000000 เป็นสีน้ำเงินลิงก์ */
-  font-weight: bold;
-  transition: color 0.2s;  /* เปลี่ยนสีแบบนุ่มนวล */
-}
-
-/* เพิ่ม Effect เมื่อนำเมาส์ไปชี้ (Hover) */
-.navmap li a:hover {
-  color: #8e1717;          /* เปลี่ยนเป็นสีส้มเมื่อเอาเมาส์ชี้ */
-  text-decoration: underline; /* แสดงเส้นใต้ */
-}
-
-.video-container {
-  text-align: center;
-  margin: 20px 0;
-}
-footer {
-  background-color: #EC4A14;
-  margin: 0 auto;
-  padding: 15px;
-  text-align: left;
-  color: rgb(255, 255, 255);
-
-}
-footer p {
-  margin: 0px 0;      /* ปรับระยะห่างระหว่างแต่ละบรรทัด (บน-ล่าง 4px, ซ้าย-ขวา 0) */
-  line-height: 1.4;   /* กำหนดความสูงของบรรทัดให้กระชับขึ้น */
-}
-.footer-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  background-color: #f14e18; /* สีส้มตามตัวอย่าง */
-  color: #ffffff;
-  padding: 30px 50px;
-  font-family: sans-serif;
-}
-
-.footer-left h3, 
-.footer-right h3 {
-  font-size: 20px;
-  margin-top: 0;
-  margin-bottom: 10px;
-}
-
-.footer-left p {
-  margin: 4px 0;
-  font-size: 14px;
-}
-
-/* บรรทัด facebook ฝั่งซ้าย */
-.facebook-link {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 8px;
-  font-size: 14px;
-}
-
-.fb-icon-small {
-  width: 20px;
-  height: 20px;
-}
-
-.facebook-link a {
-  color: #ffffff;
-  text-decoration: underline;
-}
-
-/* ฝั่งขวา (ติดตามเราได้ที่) */
-.footer-right {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.fb-icon-large {
-  width: 65px;
-  height: 65px;
-  margin-top: 10px;
-  transition: transform 0.2s;
-}
-
-.fb-icon-large:hover {
-  transform: scale(1.08); /* เอฟเฟกต์ขยายเมื่อเอาเมาส์ชี้ */
-}
-
-
-
-/* =========================================
-   STEPS SECTION (ขั้นตอนการสมัครเรียน)
-   ========================================= */
-.steps-section {
-    background-color: #fdf5f2; /* พื้นหลังสีส้มอ่อนตามภาพ */
-    padding: 35px 20px;
-    border-radius: 8px;
-    margin-bottom: 30px;
-}
-
-.steps-section .section-title {
-    text-align: center;
-    font-size: 24px;
-    font-weight: 700;
-    color: #000000;
-    margin-bottom: 6px;
-}
-
-.steps-section .subtitle {
-    text-align: center;
-    font-size: 14px;
-    color: #222222;
-    font-weight: 500;
-    margin-bottom: 30px;
-}
-
-.steps-grid {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
-
-.step-card {
-    background-color: #ffffff;
-    border: 1px solid #f8c1b2; /* เส้นขอบสีส้มอ่อน */
-    border-radius: 6px;
-    padding: 20px 12px;
-    flex: 1;
-    max-width: 220px;
-    text-align: center;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-}
-
-.step-number {
-    width: 26px;
-    height: 26px;
-    background-color: #e65100; /* สีวงกลมส้มเข้ม */
-    color: #ffffff;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 13px;
-    font-weight: bold;
-    margin: 0 auto 12px auto;
-}
-
-.step-card h3 {
-    font-size: 15px;
-    font-weight: 700;
-    color: #000000;
-    margin-bottom: 8px;
-}
-
-.step-card p {
-    font-size: 11px;
-    color: #444444;
-    line-height: 1.4;
-    font-weight: 400;
-}
-/* เลือกกล่องขั้นตอนทั้งหมด */
-.step-card {
-  transition: transform 0.3s ease-in-out; /* กำหนดระยะเวลาและรูปแบบการเคลื่อนไหว */
-}
-
-/* เมื่อเอาเมาส์ไปวางที่กล่องขั้นตอน */
-.step-card:hover {
-  transform: translateY(-10px); /* ขยับกล่องขึ้นด้านบน 10 พิกเซล */
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* เพิ่มเงาเพื่อให้ดูมีมิติมากขึ้น */
-}
-
-/* =========================================
-   FORM SECTION STYLE (สไตล์แบบฟอร์ม)
-   ========================================= */
-/* Container ใหญ่ของฟอร์ม */
-.form-section {
-    max-width: 650px;
-    margin: 30px auto;
-    font-family: 'Prompt', sans-serif;
-}
-
-.form-main-title {
-    text-align: center;
-    font-size: 20px;
-    font-weight: 700;
-    color: #000;
-    margin-bottom: 25px;
-}
-
-/* Card กรอบเทาในแต่ละหมวด */
-.form-card {
-    background-color: #f7f7f7; /* สีพื้นหลังกรอบตาม Figma */
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 20px 25px;
-    margin-bottom: 20px;
-}
-
-/* หัวข้อประจำ Card */
-.card-header {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 15px;
-}
-
-.step-num {
-    background-color: #e65100; /* สีส้ม */
-    color: white;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 11px;
-    font-weight: bold;
-}
-
-.card-header h3 {
-    font-size: 15px;
-    font-weight: 700;
-    color: #000;
-    margin: 0;
-}
-
-/* การจัดวางช่อง Input */
-.form-row {
-    display: flex;
-    gap: 15px;
-    margin-bottom: 12px;
-}
-
-.input-group {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
-
-.input-group label {
-    font-size: 11px;
-    font-weight: 600;
-    color: #000;
-}
-
-.input-group input,
-.input-group select {
-    height: 32px;
-    padding: 4px 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #fff;
-    font-size: 12px;
-    outline: none;
-}
-
-/* ส่วน Upload เอกสาร */
-.upload-item {
-    border: 1px dashed #cccccc;
-    background-color: #ffffff;
-    border-radius: 4px;
-    padding: 12px;
-    text-align: center;
-    margin-bottom: 12px;
-}
-
-.upload-title {
-    font-size: 11px;
-    font-weight: 700;
-    color: #000;
-    margin-bottom: 2px;
-}
-
-.upload-note {
-    font-size: 9px;
-    color: #777777;
-    margin-bottom: 8px;
-}
-
-.file-input {
-    display: none;
-}
-
-.btn-choose {
-    display: inline-block;
-    padding: 3px 12px;
-    background-color: #eeeeee;
-    border: 1px solid #cccccc;
-    border-radius: 3px;
-    font-size: 11px;
-    color: #333;
-    cursor: pointer;
-}
-
-.btn-choose:hover {
-    background-color: #e0e0e0;
-}
-
-/* ข้อความหมายเหตุด้านล่าง */
-.form-footer-note {
-    font-size: 10px;
-    color: #666;
-    margin-top: 10px;
-    margin-bottom: 15px;
-}
-
-/* ปุ่มส่งแบบฟอร์ม */
-.btn-submit-orange {
-    background-color: #e65100;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    font-size: 12px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: 500;
-}
-
-.btn-submit-orange:hover {
-    background-color: #d84315;
-}
-
-
-
-/* =========================================
-   PAYMENT PAGE STYLE (สไตล์หน้า payment.html)
-   ========================================= */
-.card {
-    max-width: 500px;
-    margin: 40px auto;
-    background: #ffffff;
-    border: 1px solid #e0e0e0;
-    border-radius: 12px;
-    padding: 30px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
-.card h2 {
-    font-size: 20px;
-    color: #e65100;
-    text-align: center;
-    margin-bottom: 4px;
-}
-
-.card .subtitle {
-    text-align: center;
-    font-size: 13px;
-    color: #666;
-    margin-bottom: 20px;
-}
-
-.section-title {
-    font-size: 14px;
-    font-weight: 600;
-    border-bottom: 2px solid #e65100;
-    padding-bottom: 4px;
-    margin-bottom: 12px;
-    color: #333;
-}
-
-.summary-box {
-    background-color: #f9f9f9;
-    padding: 12px 16px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-}
-
-.summary-item {
-    display: flex;
-    justify-content: space-between;
-    font-size: 13px;
-    margin-bottom: 8px;
-}
-
-.summary-item:last-child {
-    margin-bottom: 0;
-}
-
-.summary-label {
-    color: #666;
-}
-
-.summary-value {
-    font-weight: 600;
-    color: #111;
-}
-
-.price-box {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #fff3e0;
-    padding: 12px 16px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    border: 1px solid #ffe0b2;
-}
-
-.price-label {
-    font-size: 14px;
-    font-weight: 600;
-    color: #e65100;
-}
-
-.price-amount {
-    font-size: 18px;
-    font-weight: 700;
-    color: #e65100;
-}
-
-.qr-container {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-#qrcode {
-    display: flex;
-    justify-content: center;
-    margin: 15px 0;
-}
-
-.btn-download {
-    background-color: #f5f5f5;
-    border: 1px solid #ccc;
-    padding: 6px 14px;
-    font-size: 12px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-.btn-download:hover {
-    background-color: #e0e0e0;
-}
-
-.btn-submit {
-    width: 100%;
-    background-color: #2e7d32;
-    color: white;
-    border: none;
-    padding: 12px;
-    font-size: 15px;
-    font-weight: 600;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-.btn-submit:hover {
-    background-color: #1b5e20;
-}
-
-
-/* Responsive มือถือ */
-@media (max-width: 500px) {
-    .form-row {
-        flex-direction: column;
-        gap: 10px;
-    }
-}
-
+  box-sizing: border-box;
+  min-height: 120px;
+} 
+.body{ 
+  background-color: #EC4A14; 
+} 
+.container { 
+  display: flex; 
+  align-items: left;  
+  gap: 20px;           
+} 
+.head-img{ 
+    width: 6%; 
+    height: 6%; 
+} 
+.text-content{ 
+    text-align: left; 
+    font-family: 'Courier New', Courier, monospace; 
+    font-size: 10px; 
+    color: #000; 
+    margin-top: auto;    /* ระยะห่างระหว่างบรรทัดข้อความ */ 
+    font-weight: normal; 
+} 
+/* ลบระยะห่างส่วนเกินของข้อความ */ 
+.text-content h1,  
+.text-content h2 { 
+  margin: 0;          /* ลบระยะขอบบน-ล่างออกทั้งหมด */ 
+  line-height: 1.2;   /* ปรับความสูงบรรทัดให้กระชับขึ้น */ 
+} 
+ 
+/* ต้องการให้ 2 บรรทัดนี้ห่างกัน  */ 
+.text-content h2 { 
+  margin-bottom: 4px; /* ปรับเพิ่ม-ลด ความห่างตรงนี้ได้ตามต้องการ */ 
+} 
+.nav-list li a { 
+  font-size: 14px; 
+  white-space: nowrap; 
+  text-decoration: none; 
+  color: #000000; 
+  /* 2 บรรทัดนี้ ความลื่นไหลและแสดงว่าเป็นปุ่มกด */ 
+  display: inline-block;             /* เพื่อให้ transform ทำงานได้อย่างสมบูรณ์ */ 
+  transition: transform 0.2s ease;   /* กำหนดความนุ่มนวลเวลาขยาย/ย่อ */ 
+} 
+ 
+/* เพิ่มส่วนนี้ เพื่อให้ดุ๊กดิ๊กเวลาเอาเมาส์ชี้ */ 
+.nav-list li a:hover { 
+  transform: scale(1.1);             /* ขยายตัวอักษรขึ้น 10% เมื่อเมาส์ชี้ */ 
+  color: #f7f7f7;                    /* (Optional) เปลี่ยนสีข้อความเวลานำเมาส์ชี้ได้ */ 
+} 
+ 
+.nav-list { 
+  display: flex; 
+  list-style: none; 
+  margin: 0; 
+  padding: 0; 
+  gap: 12px; 
+  overflow-x: auto; 
+  margin-right: 40px; 
+} 
+ 
+/* ซ่อนปุ่มเปิดเมนูเมื่อเปิดบนหน้าจอคอมพิวเตอร์ */ 
+.nav-toggle { 
+  display: none; 
+} 
+ 
+/*รูปสามรูปตรงกลาง*/ 
+.container2 { 
+  display: flex; 
+  justify-content: center; /* จัดกลุ่มไอคอนให้อยู่กลางหน้าจอแนวนอน */ 
+  align-items: flex-start; /* ให้ด้านบนของแต่ละบล็อกตรงกัน */ 
+  gap: 20%;               /* ระยะห่างระหว่างแต่ละเมนู */ 
+  background-color: #EC4A14; /* หรือใช้สีส้มที่ต้องการ เช่น #FF6600, orange */ 
+  padding: 0px; / 
+} 
+ 
+.menu-item { 
+  display: flex; 
+  flex-direction: column;  /* แนวตั้ง: ให้รูปอยู่บน ข้อความอยู่ล่าง */ 
+  align-items: center;     /* จัดให้ทั้งรูปและข้อความตรงกลาง */ 
+  text-align: center;      /* ให้ข้อความอยู่ตรงกลาง */ 
+  transition: transform 0.2s ease; /* กำหนดความนุ่มนวลเวลาขยาย/ย่อ */ 
+  cursor: pointer;         /* เปลี่ยนรูปเมาส์เป็นนิ้วชี้ */ 
+  margin-top: 10px; 
+} 
+ 
+/* เอฟเฟกต์ทำงานเมื่อนำเมาส์ไปชี้ (:hover) */ 
+.menu-item:hover { 
+  transform: scale(1.08);  /* ขยายขึ้น 8% เมื่อเมาส์ชี้ */ 
+} 
+/* เอฟเฟกต์เวลากดคลิกค้างไว้ */ 
+.menu-item:active { 
+  transform: scale(0.95);  /* ยุบลงเล็กน้อยตอนกด */ 
+} 
+ 
+ 
+.banner1-img { 
+  width: 90px; 
+  height: auto; 
+  margin-bottom: 8px;      /* ระยะห่างระหว่างรูปกับข้อความ */ 
+} 
+ 
+.banner-img{ /*รูปใหญ๋หน้าแรก*/ 
+  display: block;      /* เปลี่ยนเป็น block เพื่อให้ใช้ margin auto ได้ */ 
+  margin: 0 auto;      /* จัดให้อยู่ตรงกลางแนวนอน */ 
+  max-width: 100%;     /* ป้องกันรูปใหญ่เกินขนาดหน้าจอ */ 
+  height: auto; 
+} 
+ 
+ 
+/* =========================================================== 
+    หน้าติดต่อเรา contact 
+  ============================================================*/ 
+.contact-card h1{ 
+  background-color: #F4E9E5 ; /*สีพื้นหลัง*/ 
+  padding: 6px 14px; /*กำหนดขนาดพื้นที่ บนล่างซ้ายขววา*/ 
+  border-radius: 8px; /*ความโค้งมนของกล่องข้อความ*/ 
+  display: inline-block; /*ทำให้ h1 เป็นกล่อง เท่าตัวหนังสือ*/ 
+  font-family: 'Courier New', Courier, monospace; /*ฟอนต์*/ 
+  font-size: 32px; /*ขนาดฟอนต์*/ 
+  color: #333;/*สีฟอนต์*/ 
+} 
+.contact-card{ 
+  background-color: #ffffff; /*สีพื้นหลังกล่องใหญ่*/ 
+  border: 1px solid #e0e0e0; /*เส้นขอบกล่อง*/ 
+  border-radius: 8px; /*องศามุมกล่อง*/ 
+  padding: 30px; /*กำหนดขนาดพื้นที่กล่อง จากขอบกล่องมาจนถึงเนื้อหา*/ 
+  max-width: 800px; /*ความกว้างสูงสุดของกล่อง*/ 
+  margin: 40px; /*ระยะห่างจากขอบกล่องถึงขอบหน้าจอ*/ 
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05); /*เงาใต้กล่อง*/ 
+} 
+.contact-card h2{ /*สำนักงาน*/ 
+  font-family: 'Courier New', Courier, monospace; 
+  font-size: 18px; 
+  color: #333; 
+} 
+.contact-card h3{  /*มจพ รายละเอียดที่อยู่*/ 
+  font-family: 'Courier New', Courier, monospace; 
+  font-size: 14px; 
+  color: #333;  } 
+.facebook-link-contact-card a { /*ลิงค์เฟสบุ๊ค*/ 
+  text-decoration: none; /*ลบเส้นใต้*/ 
+  color: #3f1fcd; 
+  margin-top: 8px; 
+  font-size: 14px; 
+} 
+ 
+/*============================= 
+หน้าสอบถามหลักสูตร course 
+===============================*/ 
+.course-link a{ 
+  color: #000; 
+  background-color: #F4E9E5 ; 
+  padding: 12px 14px; 
+  border-radius: 8px; 
+  display: inline-block; /*ทำให้เป็นกล่อง*/ 
+  margin-bottom: 50px; /*ระยะห่างด้านล่างกล่องกับฟู้ดดเต้อ*/ 
+} 
+ 
+.artical { 
+    max-width: 800px; 
+    margin: 0 auto; 
+    text-align: center; 
+    padding: 20px; 
+   
+} 
+.artical h1 { 
+  border: 2px solid #f83a00; /* สร้างกรอบ: ความหนา 2px, ชนิดเส้นทึบ, สีเทาเข้ม */ 
+  padding: 10px 20px;       /* เพิ่มระยะห่างด้านในระหว่างข้อความกับกรอบ (บน-ล่าง 10px, ซ้าย-ขวา 20px) */ 
+  border-radius: 5px;       /* ทำมุมโค้ง */ 
+  display: inline-block;    
+} 
+ 
+.navmap { 
+  list-style-type: none; 
+  padding-left: 0; 
+  margin-left: 0; 
+} 
+ 
+/* ปรับสีลิงก์ให้เห็นชัดเจนขึ้น */ 
+.navmap li a { 
+  font-size: 20px; 
+  white-space: nowrap; 
+  text-decoration: none; 
+  color: #000103;         /* เปลี่ยนจาก #000000 เป็นสีน้ำเงินลิงก์ */ 
+  font-weight: bold; 
+  transition: color 0.2s;  /* เปลี่ยนสีแบบนุ่มนวล */ 
+} 
+ 
+/* เพิ่ม Effect ตอนเม้าส์แตะ */ 
+.navmap li a:hover { 
+  color: #8e1717;          /* เปลี่ยนสีเมื่อเอาเมาส์ชี้ */ 
+  text-decoration: underline; /* แสดงเส้นใต้ */ 
+} 
+ 
+.video-container { 
+  text-align: center; 
+  margin: 20px 0; 
+} 
+ 
+ 
+/*========================================= 
+ style footer  
+ =========================================*/ 
+footer { 
+  background-color: #EC4A14; 
+  margin: 0 auto; 
+  padding: 15px; 
+  text-align: left; 
+  color: rgb(255, 255, 255); 
+ 
+} 
+footer p { 
+  margin: 0px 0;      /* ปรับระยะห่างระหว่างแต่ละบรรทัด (บน-ล่าง 4px, ซ้าย-ขวา 0) */ 
+  line-height: 1.4;   /* กำหนดความสูงของบรรทัดให้กระชับขึ้น */ 
+} 
+.footer-container { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: flex-start; 
+  background-color: #f14e18; /* สีส้มตามตัวอย่าง */ 
+  color: #ffffff; 
+  padding: 30px 50px; 
+  font-family: sans-serif; 
+} 
+ 
+.footer-left h3,  
+.footer-right h3 { 
+  font-size: 20px; 
+  margin-top: 0; 
+  margin-bottom: 10px; 
+} 
+ 
+.footer-left p { 
+  margin: 4px 0; 
+  font-size: 14px; 
+} 
+ 
+/* บรรทัด facebook ฝั่งซ้าย */ 
+.facebook-link { 
+  display: flex; 
+  align-items: center; 
+  gap: 8px; 
+  margin-top: 8px; 
+  font-size: 14px; 
+} 
+ 
+.fb-icon-small { 
+  width: 20px; 
+  height: 20px; 
+} 
+ 
+.facebook-link a { 
+  color: #ffffff; 
+  text-decoration: underline; 
+} 
+ 
+/* ฝั่งขวา (ติดตามเราได้ที่) */ 
+.footer-right { 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+} 
+ 
+.fb-icon-large { 
+  width: 65px; 
+  height: 65px; 
+  margin-top: 10px; 
+  transition: transform 0.2s; 
+} 
+ 
+.fb-icon-large:hover { 
+  transform: scale(1.08); /* เอฟเฟกต์ขยายเมื่อเอาเมาส์ชี้ */ 
+} 
+ 
+ 
+ 
+/* ===================================== 
+   SECTION ขั้นตอนการสมัครเรียน admission 
+   =====================================*/ 
+.steps-section { 
+    background-color: #fdf5f2; /* พื้นหลังสีส้มอ่อนตามภาพ */ 
+    padding: 35px 20px; 
+    border-radius: 8px; 
+    margin-bottom: 30px; 
+} 
+ 
+.steps-section .section-title { 
+    text-align: center; 
+    font-size: 24px; 
+    font-weight: 700; 
+    color: #000000; 
+    margin-bottom: 6px; 
+} 
+ 
+.steps-section .subtitle { 
+    text-align: center; 
+    font-size: 14px; 
+    color: #222222; 
+    font-weight: 500; 
+    margin-bottom: 30px; 
+} 
+ 
+.steps-grid { 
+    display: flex; 
+    justify-content: center; 
+    gap: 15px; 
+} 
+ 
+.step-card { 
+    background-color: #ffffff; 
+    border: 1px solid #f8c1b2; /* เส้นขอบสีส้มอ่อน */ 
+    border-radius: 6px; 
+    padding: 20px 12px; 
+    flex: 1; 
+    max-width: 220px; 
+    text-align: center; 
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05); 
+} 
+ 
+.step-number { 
+    width: 26px; 
+    height: 26px; 
+    background-color: #e65100; /* สีวงกลมส้มเข้ม */ 
+    color: #ffffff; 
+    border-radius: 50%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-size: 13px; 
+    font-weight: bold; 
+    margin: 0 auto 12px auto; 
+} 
+ 
+.step-card h3 { 
+    font-size: 15px; 
+    font-weight: 700; 
+    color: #000000; 
+    margin-bottom: 8px; 
+} 
+ 
+.step-card p { 
+    font-size: 11px; 
+    color: #444444; 
+    line-height: 1.4; 
+    font-weight: 400; 
+} 
+/* เลือกกล่องขั้นตอนทั้งหมด */ 
+.step-card { 
+  transition: transform 0.3s ease-in-out; /* กำหนดระยะเวลาและรูปแบบการเคลื่อนไหว */ 
+} 
+ 
+/* เมื่อเอาเมาส์ไปวางที่กล่องขั้นตอน */ 
+.step-card:hover { 
+  transform: translateY(-10px); /* ขยับกล่องขึ้นด้านบน 10 พิกเซล */ 
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* เพิ่มเงาเพื่อให้ดูมีมิติมากขึ้น */ 
+} 
+ 
+/*SECTION แบบฟอร์ม */ 
+/* Container ใหญ่ของฟอร์ม */ 
+.form-section { 
+    max-width: 650px; 
+    margin: 30px auto; 
+    font-family: 'Prompt', sans-serif; 
+} 
+ 
+.form-main-title { 
+    text-align: center; 
+    font-size: 20px; 
+    font-weight: 700; 
+    color: #000; 
+    margin-bottom: 25px; 
+} 
+ 
+/* Card กรอบเทาในแต่ละหมวด */ 
+.form-card { 
+    background-color: #f7f7f7; /* สีพื้นหลังกรอบตาม Figma */ 
+    border: 1px solid #e0e0e0; 
+    border-radius: 8px; 
+    padding: 20px 25px; 
+    margin-bottom: 20px; 
+} 
+ 
+/* หัวข้อประจำ Card */ 
+.card-header { 
+    display: flex; 
+    align-items: center; 
+    gap: 8px; 
+    margin-bottom: 15px; 
+} 
+ 
+.step-num { 
+    background-color: #e65100; /* สีส้ม */ 
+    color: white; 
+    width: 20px; 
+    height: 20px; 
+    border-radius: 50%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-size: 11px; 
+    font-weight: bold; 
+} 
+ 
+.card-header h3 { 
+    font-size: 15px; 
+    font-weight: 700; 
+    color: #000; 
+    margin: 0; 
+} 
+ 
+/* การจัดวางช่อง Input */ 
+.form-row { 
+    display: flex; 
+    gap: 15px; 
+    margin-bottom: 12px; 
+} 
+ 
+.input-group { 
+    flex: 1; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 4px; 
+} 
+ 
+.input-group label { 
+    font-size: 11px; 
+    font-weight: 600; 
+    color: #000; 
+} 
+ 
+.input-group input, 
+.input-group select { 
+    height: 32px; 
+    padding: 4px 8px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    background-color: #fff; 
+    font-size: 12px; 
+    outline: none; 
+} 
+ 
+/* ส่วน Upload เอกสาร */ 
+.upload-item { 
+    border: 1px dashed #cccccc; 
+    background-color: #ffffff; 
+    border-radius: 4px; 
+    padding: 12px; 
+    text-align: center; 
+    margin-bottom: 12px; 
+} 
+ 
+.upload-title { 
+    font-size: 11px; 
+    font-weight: 700; 
+    color: #000; 
+    margin-bottom: 2px; 
+} 
+ 
+.upload-note { 
+    font-size: 9px; 
+    color: #777777; 
+    margin-bottom: 8px; 
+} 
+ 
+.file-input { 
+    display: none; 
+} 
+ 
+.btn-choose { 
+    display: inline-block; 
+    padding: 3px 12px; 
+    background-color: #eeeeee; 
+    border: 1px solid #cccccc; 
+    border-radius: 3px; 
+    font-size: 11px; 
+    color: #333; 
+    cursor: pointer; 
+} 
+ 
+.btn-choose:hover { /* effect choose */ 
+    background-color: #e0e0e0; 
+} 
+ 
+/* สีตัวหนังสือชื่อไฟล์ที่เลือกมาใส่ */ 
+.file-name-text { 
+    margin-left: 10px; 
+    font-size: 0.9rem; 
+    color: hwb(0 0% 0%); 
+    font-weight: 500; 
+} 
+ 
+/* ข้อความหมายเหตุด้านล่าง */ 
+.form-footer-note { 
+    font-size: 10px; 
+    color: #666; 
+    margin-top: 10px; 
+    margin-bottom: 15px; 
+} 
+ 
+/* ปุ่มส่งแบบฟอร์ม */ 
+.btn-submit-orange { 
+    background-color: #e65100; 
+    color: white; 
+    border: none; 
+    padding: 8px 16px; 
+    font-size: 12px; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    font-weight: 500; 
+} 
+ 
+.btn-submit-orange:hover { 
+    background-color: #d84315; 
+} 
+ 
+ 
+ 
+/* ========================================= 
+   STYLE payment 
+   ========================================= */ 
+.card { 
+    max-width: 500px; 
+    margin: 40px auto; 
+    background: #ffffff; 
+    border: 1px solid #e0e0e0; 
+    border-radius: 12px; 
+    padding: 30px; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
+} 
+ 
+.card h2 { 
+    font-size: 20px; 
+    color: #e65100; 
+    text-align: center; 
+    margin-bottom: 4px; 
+} 
+ 
+.card .subtitle { 
+    text-align: center; 
+    font-size: 13px; 
+    color: #666; 
+    margin-bottom: 20px; 
+} 
+ 
+.section-title { 
+    font-size: 14px; 
+    font-weight: 600; 
+    border-bottom: 2px solid #e65100; 
+    padding-bottom: 4px; 
+    margin-bottom: 12px; 
+    color: #333; 
+} 
+ 
+.summary-box { 
+    background-color: #f9f9f9; 
+    padding: 12px 16px; 
+    border-radius: 8px; 
+    margin-bottom: 20px; 
+} 
+ 
+.summary-item { 
+    display: flex; 
+    justify-content: space-between; 
+    font-size: 13px; 
+    margin-bottom: 8px; 
+} 
+ 
+.summary-item:last-child { 
+    margin-bottom: 0; 
+} 
+ 
+.summary-label { 
+    color: #666; 
+} 
+ 
+.summary-value { 
+    font-weight: 600; 
+    color: #111; 
+} 
+ 
+.price-box { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    background-color: #fff3e0; 
+    padding: 12px 16px; 
+    border-radius: 8px; 
+    margin-bottom: 20px; 
+    border: 1px solid #ffe0b2; 
+} 
+ 
+.price-label { 
+    font-size: 14px; 
+    font-weight: 600; 
+    color: #e65100; 
+} 
+ 
+.price-amount { 
+    font-size: 18px; 
+    font-weight: 700; 
+    color: #e65100; 
+} 
+ 
+.qr-container { 
+    text-align: center; 
+    margin-bottom: 20px; 
+} 
+ 
+#qrcode { 
+    display: flex; 
+    justify-content: center; 
+    margin: 15px 0; 
+} 
+ 
+/*ปุ่มโหลดคิวอาร์*/ 
+.btn-download { 
+    background-color: #f5f5f5; 
+    border: 1px solid #ccc; 
+    padding: 6px 14px; 
+    font-size: 12px; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    transition: background-color 0.2s; 
+} 
+ 
+.btn-download:hover { 
+    background-color: #e0e0e0; 
+} 
+ 
+/*ปุ่มยืนยันจ่ายเงิน*/ 
+.btn-submit { 
+    width: 100%; 
+    background-color: #2e7d32; 
+    color: white; 
+    border: none; 
+    padding: 12px; 
+    font-size: 15px; 
+    font-weight: 600; 
+    border-radius: 6px; 
+    cursor: pointer; 
+    transition: background-color 0.2s; 
+} 
+ 
+/* เอฟเฟกต์ปุ่ม */ 
+.btn-submit:hover { 
+    background-color: #1b5e20; 
+} 
+ 
+/*========================== 
+   Responsive Design 
+   =========================*/ 
+/* Responsive มือถือ */ 
+@media (max-width: 500px) { 
+    .form-row { 
+        flex-direction: column; 
+        gap: 10px; 
+    } 
+} 
+ 
+ 
+ 
+ /*รูปหน้า assign กำหนการต่างๆ รูปใหญ่ๆ เบิ้มๆ แก้ยากๆ*/
+.a-banner-img { 
+    display: block; 
+    width: 90%; 
+    max-width: 1200px; 
+    height: auto; 
+    margin: 30px auto; 
+} 
+ 
+.banner { 
+    width: 100%; 
+    padding: 30px 0; 
+    box-sizing: border-box; 
+} 
