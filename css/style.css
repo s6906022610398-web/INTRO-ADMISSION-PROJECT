@@ -25,17 +25,17 @@
   align-items: left;  
   gap: 20px;           
 } 
-.head-img{ 
+.head-img{  /* ตรามจพ หัว */
     width: 6%; 
     height: 6%; 
 } 
-.text-content{ 
+.text-content{ /*ฟอนต์ หัวเว็บ*/
     text-align: left; 
     font-family: 'Courier New', Courier, monospace; 
     font-size: 10px; 
     color: #000; 
     margin-top: auto;    /* ระยะห่างระหว่างบรรทัดข้อความ */ 
-    font-weight: normal; 
+    font-weight: normal; /*ความหนาตัวอักษร*/
 } 
 /* ลบระยะห่างส่วนเกินของข้อความ */ 
 .text-content h1,  
@@ -47,38 +47,43 @@
 /* ต้องการให้ 2 บรรทัดนี้ห่างกัน  */ 
 .text-content h2 { 
   margin-bottom: 4px; /* ปรับเพิ่ม-ลด ความห่างตรงนี้ได้ตามต้องการ */ 
-} 
-.nav-list li a { 
+}
+
+.nav-list li a { /*ฟอนต์ ลิงค์หน้าต่างๆ*/
   font-size: 14px; 
   white-space: nowrap; 
   text-decoration: none; 
   color: #000000; 
   /* 2 บรรทัดนี้ ความลื่นไหลและแสดงว่าเป็นปุ่มกด */ 
-  display: inline-block;             /* เพื่อให้ transform ทำงานได้อย่างสมบูรณ์ */ 
+  display: inline-block;             /* ืำให้เป็นเหมือนกล่อง ที่วางเรียงต่อกัน */ 
   transition: transform 0.2s ease;   /* กำหนดความนุ่มนวลเวลาขยาย/ย่อ */ 
 } 
  
 /* เพิ่มส่วนนี้ เพื่อให้ดุ๊กดิ๊กเวลาเอาเมาส์ชี้ */ 
 .nav-list li a:hover { 
-  transform: scale(1.1);             /* ขยายตัวอักษรขึ้น 10% เมื่อเมาส์ชี้ */ 
-  color: #f7f7f7;                    /* (Optional) เปลี่ยนสีข้อความเวลานำเมาส์ชี้ได้ */ 
+  transform: scale(1.1);  /* ขยายตัวอักษรขึ้น 10% เมื่อเมาส์ชี้ */ 
+  color: #f7f7f7;    /* เปลี่ยนสีข้อความเวลานำเมาส์ชี้ได้ */ 
 } 
  
 .nav-list { 
-  display: flex; 
-  list-style: none; 
+  display: flex;  /*flex ใช้จัดกล่องให้อยูรูปแบบแนวนแน*/
+  list-style: none; /*ลบจุดหน้าคำออก*/
   margin: 0; 
   padding: 0; 
-  gap: 12px; 
-  overflow-x: auto; 
-  margin-right: 40px; 
+  gap: 12px; /*ระยะห่าง แต่ละ ตัว*/
+  overflow-x: auto; /*ตัวเลื่อนแนวนอน*/
+  margin-right: 40px;/*เว้นพื้นที่ด้านขวา*/
 } 
  
 /* ซ่อนปุ่มเปิดเมนูเมื่อเปิดบนหน้าจอคอมพิวเตอร์ */ 
 .nav-toggle { 
   display: none; 
 } 
- 
+
+
+/*================================== 
+ หน้า index
+ ===================================*/
 /*รูปสามรูปตรงกลาง*/ 
 .container2 { 
   display: flex; 
@@ -121,7 +126,46 @@
   max-width: 100%;     /* ป้องกันรูปใหญ่เกินขนาดหน้าจอ */ 
   height: auto; 
 } 
+.artical { 
+    max-width: 800px; 
+    margin: 0 auto; 
+    text-align: center; 
+    padding: 20px; 
+   
+} 
+.artical h1 { 
+  border: 2px solid #f83a00; /* สร้างกรอบ: ความหนา 2px, ชนิดเส้นทึบ, สีเทาเข้ม */ 
+  padding: 10px 20px;       /* เพิ่มระยะห่างด้านในระหว่างข้อความกับกรอบ (บน-ล่าง 10px, ซ้าย-ขวา 20px) */ 
+  border-radius: 5px;       /* ทำมุมโค้ง */ 
+  display: inline-block;    
+} 
  
+.navmap { 
+  list-style-type: none; 
+  padding-left: 0; 
+  margin-left: 0; 
+} 
+ 
+/* ปรับสีลิงก์ให้เห็นชัดเจนขึ้น แผนที่ มจพ*/ 
+.navmap li a {  
+  font-size: 20px; 
+  white-space: nowrap; /*ไม่ให้ขึ้นบรรทัดใหม่*/
+  text-decoration: none; /*ไม่มีเส้นใต้*/
+  color: #000103;         /* เปลี่ยนจาก #000000 เป็นสีน้ำเงินลิงก์ */ 
+  font-weight: bold; /*ฟอนต์หนา*/
+  transition: color 0.2s;  /* เปลี่ยนสีแบบนุ่มนวล */ 
+} 
+ 
+/* เพิ่ม Effect ตอนเม้าส์แตะ */ 
+.navmap li a:hover { 
+  color: #8e1717;          /* เปลี่ยนสีเมื่อเอาเมาส์ชี้ */ 
+  text-decoration: underline; /* แสดงเส้นใต้ */ 
+} 
+ 
+.video-container { 
+  text-align: center; 
+  margin: 20px 0; /*ระยะห่าง บน-ล่าง 20 ซข 0*/
+} 
  
 /* =========================================================== 
     หน้าติดต่อเรา contact 
@@ -172,46 +216,7 @@
   margin-bottom: 50px; /*ระยะห่างด้านล่างกล่องกับฟู้ดดเต้อ*/ 
 } 
  
-.artical { 
-    max-width: 800px; 
-    margin: 0 auto; 
-    text-align: center; 
-    padding: 20px; 
-   
-} 
-.artical h1 { 
-  border: 2px solid #f83a00; /* สร้างกรอบ: ความหนา 2px, ชนิดเส้นทึบ, สีเทาเข้ม */ 
-  padding: 10px 20px;       /* เพิ่มระยะห่างด้านในระหว่างข้อความกับกรอบ (บน-ล่าง 10px, ซ้าย-ขวา 20px) */ 
-  border-radius: 5px;       /* ทำมุมโค้ง */ 
-  display: inline-block;    
-} 
- 
-.navmap { 
-  list-style-type: none; 
-  padding-left: 0; 
-  margin-left: 0; 
-} 
- 
-/* ปรับสีลิงก์ให้เห็นชัดเจนขึ้น */ 
-.navmap li a { 
-  font-size: 20px; 
-  white-space: nowrap; 
-  text-decoration: none; 
-  color: #000103;         /* เปลี่ยนจาก #000000 เป็นสีน้ำเงินลิงก์ */ 
-  font-weight: bold; 
-  transition: color 0.2s;  /* เปลี่ยนสีแบบนุ่มนวล */ 
-} 
- 
-/* เพิ่ม Effect ตอนเม้าส์แตะ */ 
-.navmap li a:hover { 
-  color: #8e1717;          /* เปลี่ยนสีเมื่อเอาเมาส์ชี้ */ 
-  text-decoration: underline; /* แสดงเส้นใต้ */ 
-} 
- 
-.video-container { 
-  text-align: center; 
-  margin: 20px 0; 
-} 
+
  
  
 /*========================================= 
@@ -389,7 +394,7 @@ footer p {
  
 /* Card กรอบเทาในแต่ละหมวด */ 
 .form-card { 
-    background-color: #f7f7f7; /* สีพื้นหลังกรอบตาม Figma */ 
+    background-color: #f7f7f7; /* สีพื้นหลังกรอบ */ 
     border: 1px solid #e0e0e0; 
     border-radius: 8px; 
     padding: 20px 25px; 
