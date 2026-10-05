@@ -75,7 +75,7 @@
         <section class="form-section">
             <h2 class="form-main-title">แบบฟอร์มแจ้งความประสงค์สมัครเรียน</h2>
 
-            <form class="application-form" action="payment.html" method="GET" onsubmit="return prepareDataForPayment()">
+            <form class="application-form" id="applicationForm" action="payment.html" method="GET" onsubmit="return handleFormSubmit(event)">
                 
                 <!-- Blockข้อมูลส่วนตัว -->
                 <div class="form-card">
@@ -150,49 +150,50 @@
                 </div>
 
                 <!-- Blockเอกสารประกอบการสมัคร -->
-                <div class="form-card">
-                    <div class="card-header">
-                        <span class="step-num">4</span>
-                        <h3>เอกสารประกอบการสมัคร</h3>
-                    </div>
+<div class="form-card">
+    <div class="card-header">
+        <span class="step-num">4</span>
+        <h3>เอกสารประกอบการสมัคร</h3>
+    </div>
 
-                    <div class="upload-item">
-                        <p class="upload-title">ใบแสดงผลการเรียน (ปพ.1)</p>
-                        <p class="upload-note">การอัปโหลดไฟล์ แนบไฟล์สแกนหลักฐานไฟล์ pdf,jpg,png ขนาดไม่เกิน 5 MB</p>
-                        <input type="file" id="file1" class="file-input" accept=".pdf,.jpg,.png">
-                        <button type="button" class="btn-choose" onclick="document.getElementById('file1').click()">Choose File</button>
-                        <span id="file1-name" class="file-name-text"></span>
-                    </div>
+    <div class="upload-item">
+        <p class="upload-title">ใบแสดงผลการเรียน (ปพ.1)</p>
+        <p class="upload-note">การอัปโหลดไฟล์ แนบไฟล์สแกนหลักฐานไฟล์ pdf,jpg,png ขนาดไม่เกิน 5 MB</p>
+        <input type="file" id="file1" name="transcript" class="file-input" accept=".pdf,.jpg,.png" required>
+        <label for="file1" class="btn-choose">Choose File</label>
+        <span id="file1-name" class="file-name-text"></span>
+    </div>
 
-                    <div class="upload-item">
-                        <p class="upload-title">สำเนาบัตรประชาชน</p>
-                        <p class="upload-note">การอัปโหลดไฟล์ แนบไฟล์สแกนหลักฐานไฟล์ pdf,jpg,png ขนาดไม่เกิน 5 MB</p>
-                        <input type="file" id="file2" class="file-input" accept=".pdf,.jpg,.png">
-                        <button type="button" class="btn-choose" onclick="document.getElementById('file2').click()">Choose File</button>
-                        <span id="file2-name" class="file-name-text"></span>
-                    </div>
+    <div class="upload-item">
+        <p class="upload-title">สำเนาบัตรประชาชน</p>
+        <p class="upload-note">การอัปโหลดไฟล์ แนบไฟล์สแกนหลักฐานไฟล์ pdf,jpg,png ขนาดไม่เกิน 5 MB</p>
+        <input type="file" id="file2" name="id_card" class="file-input" accept=".pdf,.jpg,.png" required>
+        <label for="file2" class="btn-choose">Choose File</label>
+        <span id="file2-name" class="file-name-text"></span>
+    </div>
 
-                    <div class="upload-item">
-                        <p class="upload-title">รูปถ่ายหน้าตรง</p>
-                        <p class="upload-note">การอัปโหลดไฟล์ แนบไฟล์สแกนหลักฐานไฟล์ pdf,jpg,png ขนาดไม่เกิน 5 MB</p>
-                        <input type="file" id="file3" class="file-input" accept=".pdf,.jpg,.png">
-                        <button type="button" class="btn-choose" onclick="document.getElementById('file3').click()">Choose File</button>
-                        <span id="file3-name" class="file-name-text"></span>
-                    </div>
+    <div class="upload-item">
+        <p class="upload-title">รูปถ่ายหน้าตรง</p>
+        <p class="upload-note">การอัปโหลดไฟล์ แนบไฟล์สแกนหลักฐานไฟล์ pdf,jpg,png ขนาดไม่เกิน 5 MB</p>
+        <input type="file" id="file3" name="photo" class="file-input" accept=".pdf,.jpg,.png" required>
+        <label for="file3" class="btn-choose">Choose File</label>
+        <span id="file3-name" class="file-name-text"></span>
+    </div>
+</div>
+
+                <div class="form-row" style="margin-top: 20px;">
+                    <button type="submit" class="btn-choose" style="border: none; cursor: pointer;">
+                        ส่งใบสมัครและอัปโหลดเอกสาร
+                    </button>
                 </div>
-
-                <p class="form-footer-note">ข้าพเจ้าขอรับรองว่าข้อความข้างต้นถูกต้องและเป็นความจริงทุกประการ</p>
-
-                <div class="form-actions">
-                    <button type="submit" class="btn-submit-orange">ส่งข้อมูลการสมัคร</button>
-                </div>
-
             </form>
         </section>
 
     </main>
 
     
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
     <!-- JavaScript เลือกสาขา เลือกไฟล์ -->
     <script>
@@ -237,31 +238,183 @@
             }
         }
 
-        // ดึงชื่อคณะและสาขาใส่ใน hidden input ก่อนส่งไป payment.html
+        /*
+         * SUPABASE SETUP
+         * 1) สร้าง Supabase project
+         * 2) สร้าง Storage bucket ชื่อ "documents"
+         * 3) ตั้ง bucket เป็น Private
+         * 4) ใส่ Project URL และ Publishable/Anon Key ด้านล่าง
+         */
+        const SUPABASE_URL = "ใส่-SUPABASE-PROJECT-URL-ตรงนี้";
+        const SUPABASE_ANON_KEY = "ใส่-SUPABASE-PUBLISHABLE-KEY-ตรงนี้";
+        const STORAGE_BUCKET = "documents";
+
+        const supabaseClient = window.supabase.createClient(
+            SUPABASE_URL,
+            SUPABASE_ANON_KEY
+        );
+
+        const MAX_FILE_SIZE = 5 * 1024 * 1024;
+        const ALLOWED_TYPES = [
+            "application/pdf",
+            "image/jpeg",
+            "image/png"
+        ];
+
         function prepareDataForPayment() {
             const facultySelect = document.getElementById("faculty");
             const majorSelect = document.getElementById("major");
 
             if (facultySelect.selectedIndex > 0) {
-                document.getElementById("faculty_text").value = facultySelect.options[facultySelect.selectedIndex].text;
+                document.getElementById("faculty_text").value =
+                    facultySelect.options[facultySelect.selectedIndex].text;
             }
+
             if (majorSelect.selectedIndex > 0) {
-                document.getElementById("major_text").value = majorSelect.options[majorSelect.selectedIndex].text;
+                document.getElementById("major_text").value =
+                    majorSelect.options[majorSelect.selectedIndex].text;
             }
+
             return true;
         }
 
-        // แสดงชื่อไฟล์เมื่อผู้ใช้เลือกไฟล์
+        function validateFile(file) {
+            if (!file) return "กรุณาเลือกไฟล์";
+            if (!ALLOWED_TYPES.includes(file.type)) {
+                return "อนุญาตเฉพาะไฟล์ PDF, JPG และ PNG เท่านั้น";
+            }
+            if (file.size > MAX_FILE_SIZE) {
+                return "ขนาดไฟล์ต้องไม่เกิน 5 MB";
+            }
+            return "";
+        }
+
+        function safeFileName(name) {
+            return name
+                .normalize("NFKD")
+                .replace(/[^a-zA-Z0-9._-]/g, "_");
+        }
+
+        async function uploadFile(file, type, applicantId) {
+            const path =
+                applicantId + "/" +
+                type + "_" +
+                Date.now() + "_" +
+                safeFileName(file.name);
+
+            const { error } = await supabaseClient.storage
+                .from(STORAGE_BUCKET)
+                .upload(path, file, {
+                    cacheControl: "3600",
+                    upsert: false
+                });
+
+            if (error) throw error;
+            return path;
+        }
+
+        async function handleFormSubmit(event) {
+            event.preventDefault();
+
+            const file1 = document.getElementById("file1").files[0];
+            const file2 = document.getElementById("file2").files[0];
+            const file3 = document.getElementById("file3").files[0];
+
+            const checks = [
+                [file1, "ใบแสดงผลการเรียน (ปพ.1)"],
+                [file2, "สำเนาบัตรประชาชน"],
+                [file3, "รูปถ่ายหน้าตรง"]
+            ];
+
+            for (const [file, label] of checks) {
+                const error = validateFile(file);
+                if (error) {
+                    alert(label + ": " + error);
+                    return false;
+                }
+            }
+
+            if (
+                SUPABASE_URL.includes("ใส่-SUPABASE") ||
+                SUPABASE_ANON_KEY.includes("ใส่-SUPABASE")
+            ) {
+                alert("ยังไม่ได้ตั้งค่า Supabase กรุณาใส่ Project URL และ Publishable/Anon Key ในโค้ดก่อน");
+                return false;
+            }
+
+            prepareDataForPayment();
+
+            const applicantId =
+                "app_" + Date.now() + "_" +
+                Math.random().toString(36).slice(2, 8);
+
+            try {
+                alert("กำลังอัปโหลดเอกสาร กรุณารอสักครู่...");
+
+                const transcriptPath =
+                    await uploadFile(file1, "transcript", applicantId);
+
+                const idCardPath =
+                    await uploadFile(file2, "id_card", applicantId);
+
+                const photoPath =
+                    await uploadFile(file3, "photo", applicantId);
+
+                sessionStorage.setItem("applicantId", applicantId);
+                sessionStorage.setItem("transcriptPath", transcriptPath);
+                sessionStorage.setItem("idCardPath", idCardPath);
+                sessionStorage.setItem("photoPath", photoPath);
+
+                const form = document.getElementById("applicationForm");
+                const params = new URLSearchParams();
+
+                new FormData(form).forEach((value, key) => {
+                    if (!(value instanceof File)) {
+                        params.append(key, value);
+                    }
+                });
+
+                window.location.href =
+                    "payment.html?" + params.toString();
+
+            } catch (error) {
+                console.error("Upload error:", error);
+                alert(
+                    "อัปโหลดเอกสารไม่สำเร็จ\n\n" +
+                    (error.message || error)
+                );
+            }
+
+            return false;
+        }
+
         document.addEventListener("DOMContentLoaded", function() {
-            ['file1', 'file2', 'file3'].forEach(id => {
+            ["file1", "file2", "file3"].forEach(id => {
                 const input = document.getElementById(id);
+
                 if (input) {
-                    input.addEventListener('change', function() {
-                        const fileNameSpan = document.getElementById(id + '-name');
+                    input.addEventListener("change", function() {
+                        const fileNameSpan =
+                            document.getElementById(id + "-name");
+
                         if (this.files && this.files.length > 0) {
-                            if (fileNameSpan) fileNameSpan.textContent = "เลือกไฟล์แล้ว: " + this.files[0].name;
-                        } else {
-                            if (fileNameSpan) fileNameSpan.textContent = "";
+                            const error = validateFile(this.files[0]);
+
+                            if (error) {
+                                alert(error);
+                                this.value = "";
+                                if (fileNameSpan) {
+                                    fileNameSpan.textContent = "";
+                                }
+                                return;
+                            }
+
+                            if (fileNameSpan) {
+                                fileNameSpan.textContent =
+                                    "เลือกไฟล์แล้ว: " + this.files[0].name;
+                            }
+                        } else if (fileNameSpan) {
+                            fileNameSpan.textContent = "";
                         }
                     });
                 }
